@@ -59,9 +59,70 @@ body.hasslip .wrap{padding-bottom:84px}
  .results{grid-template-columns:1fr 1fr}.filters .pair{grid-template-columns:1fr;gap:0}.wrap{padding:14px 18px}.tabs{max-width:620px}
 }
 @media (min-width:1100px){.layout{grid-template-columns:320px 1fr}}
-</style></head><body>
+</style><style>/*KB139 css*/
+.kbbar{display:flex;gap:6px;margin-top:6px;align-items:stretch}
+.kbbar input{flex:1;min-width:0;min-height:44px;border-radius:10px;border:0;padding:0 12px;font-size:16px}
+.kbbar button{min-height:44px;border:0;border-radius:10px;background:#26355c;color:#fff;font-size:14px;font-weight:600;padding:0 12px;white-space:nowrap}
+.kbbar button.on{background:#fca311;color:#14213d}
+.kbn{display:inline-block;min-width:18px;padding:0 5px;border-radius:9px;background:#fca311;color:#14213d;font-size:12px;margin-left:4px}
+.kbbar button.on .kbn{background:#14213d;color:#fff}
+.kbx{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.kbx button,.kbbtn{min-height:40px;border:1px solid #14213d;background:#fff;color:#14213d;border-radius:10px;padding:0 12px;font-size:14px;font-weight:600;cursor:pointer}
+.kbx button.on,.kbbtn.on{background:#14213d;color:#fff}
+.kbx button.kbst,.kbbtn.kbst{border-color:#e9a400;color:#8a5a00}.kbx button.kbst.on,.kbbtn.kbst.on{background:#fca311;color:#14213d;border-color:#fca311}
+.kbmv{display:inline-block;font-size:12px;font-weight:600;border-radius:8px;padding:2px 7px;margin:2px 4px 0 0;background:#eef1f7;color:#34405e}
+.kbmv.up{background:#e3f6ee;color:#1d7a55}.kbmv.dn{background:#fde8e8;color:#b02a2a}
+.kbv{padding:4px 0 20px}.kbv h2{margin:14px 0 6px}
+.kbl{background:#fff;border-radius:12px;padding:9px 12px;box-shadow:0 1px 3px #0002;margin-bottom:8px}
+.kbl .meta{font-size:12px;color:#55607a;font-weight:600}.kbl .sel{font-weight:700}
+.kbg{background:#fff;border-radius:12px;padding:9px 12px;box-shadow:0 1px 3px #0002;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.kbtop{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:4px 0 10px}
+.kbtop select,.kbtop input{min-height:40px;border-radius:10px;font-size:15px;width:auto;max-width:100%}
+.kbtop button{min-height:40px;border:0;border-radius:10px;background:#14213d;color:#fff;font-weight:600;padding:0 14px;font-size:14px}
+.kbtop button.alt{background:#bbb;color:#14213d}
+.kbk{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:6px 0 10px}
+.kbk div{background:#fff;border-radius:12px;padding:8px 10px;box-shadow:0 1px 3px #0002}.kbk span{display:block;font-size:11px;color:#6b7590}.kbk b{font-size:18px}
+.kbt{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:10px}.kbt table{border-collapse:collapse;width:100%;background:#fff;font-size:14px}
+.kbt th,.kbt td{padding:6px 8px;border-bottom:1px solid #e3e6ee;text-align:left;white-space:nowrap}.kbt td.n{text-align:right}
+.kbbet{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 1px 3px #0002;margin-bottom:10px;border-left:5px solid #c9cfda}
+.kbbet.win{border-left-color:#2a9d8f}.kbbet.loss{border-left-color:#d64545}.kbbet.push,.kbbet.void{border-left-color:#8a94ab}
+.kbbet .hd{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.kbbet .hd b{font-size:16px}
+.kbbet .meta{font-size:12px;color:#55607a;font-weight:600;margin-top:2px}
+.kbbet .lg{font-size:13px;padding:3px 0 3px 8px;border-left:2px solid #e3e6ee;margin:4px 0}
+.kbbet select{min-height:40px;border-radius:10px;font-size:14px;width:auto}
+.kbr{display:inline-block;font-size:12px;font-weight:700;border-radius:8px;padding:2px 8px;background:#eef1f7;color:#34405e;text-transform:uppercase}
+.kbr.win{background:#2a9d8f;color:#fff}.kbr.loss{background:#d64545;color:#fff}.kbr.push,.kbr.void{background:#8a94ab;color:#fff}
+.kbpos{color:#1d7a55}.kbneg{color:#b02a2a}
+#kbm{position:fixed;inset:0;background:#0008;z-index:1000;display:flex;align-items:center;justify-content:center;padding:12px}
+#kbm.hide{display:none}
+#kbm .c{background:#fff;border-radius:16px;max-width:520px;width:100%;max-height:92vh;overflow:auto;padding:14px 16px;box-shadow:0 8px 30px #0006}
+#kbm h3{margin:0 0 6px}#kbm label{display:block;font-size:13px;font-weight:600;margin-top:8px;color:#34405e}
+#kbm input,#kbm select{width:100%;min-height:44px;border-radius:10px;border:1px solid #c9cfda;padding:0 10px;font-size:16px;box-sizing:border-box}
+#kbm .two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#kbm .lgs{font-size:14px;background:#f3f6ff;border-radius:10px;padding:6px 10px}#kbm .lgs div{padding:2px 0}
+#kbm .err{color:#b02a2a;font-weight:600;min-height:18px;margin-top:6px}
+#kbm .bt{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}#kbm .bt button{min-height:44px;border:0;border-radius:10px;padding:0 16px;font-size:15px;font-weight:700;background:#14213d;color:#fff}
+#kbm .bt .alt{background:#bbb;color:#14213d}#kbm .bt .danger{background:#d64545}
+#kbtoast{position:fixed;left:50%;bottom:76px;transform:translateX(-50%);background:#14213d;color:#fff;padding:10px 16px;border-radius:12px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s;z-index:1001;max-width:90vw;text-align:center}
+#kbtoast.on{opacity:1}
+@media (max-width:760px){
+ .tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;max-width:none}
+ .tabs::-webkit-scrollbar{display:none}
+ .tabs button{flex:0 0 auto;white-space:nowrap;padding:0 12px}
+ .kbbar{flex-wrap:wrap}
+ .kbbar input{flex:1 1 100%}
+ .kbbar button{flex:1 1 0;padding:0 9px;font-size:14px}
+ #kbm{align-items:flex-end;padding:0}#kbm .c{border-radius:16px 16px 0 0;max-height:94vh}
+ .kbk b{font-size:16px}
+}
+/* fix: on ≥768px .layout{display:grid} beat .hide, so Find bets showed under every tab */
+.layout.hide,.kbv.hide{display:none}
+.kbk b{white-space:normal}
+/*/KB139 css*/
+</style>
+</head><body>
 <header><h1>Bet Finder</h1><div class="sub" id="sub"></div>
-<div class="tabs"><button id="tab-best" class="on">Best Bets &amp; Parlays</button><button id="tab-find">Find bets</button><button id="tab-rec">Record</button><button id="tab-mo">Model only</button><button id="tab-live">Live</button><button id="tab-np">New Props (tracked)</button><button id="tab-parlay">Parlay Generator</button><button id="tab-up">Upcoming (early lines)</button></div></header>
+<div class="tabs"><button id="tab-best" class="on">Best Bets &amp; Parlays</button><button id="tab-find">Find bets</button><button id="tab-rec">Record</button><button id="tab-mo">Model only</button><button id="tab-live">Live</button><button id="tab-np">New Props (tracked)</button><button id="tab-parlay">Parlay Generator</button><button id="tab-up">Upcoming (early lines)</button></div><!--KB139 bar--><div class="kbbar"><input id="kbq" type="search" placeholder="🔎 Search games, players, props (Ctrl+K)" autocomplete="off" aria-label="Search games, teams, players and props"><button id="tab-mb" type="button">My bets<span class="kbn" id="kbn-mb"></span></button><button id="tab-wl" type="button">★ Watch<span class="kbn" id="kbn-wl"></span></button></div><!--/KB139 bar--></header>
 <div class="wrap">
 <div id="best" class="best"><div class="bar"><label for="b-date" style="font-weight:600">Date</label><select id="b-date"></select> <label for="b-sport" style="font-weight:600">Best 5</label><select id="b-sport" title="Overall Best 5, or a per-sport Best 5 (each its own record)"><option value="">Overall (all sports)</option><option value="nfl">NFL only</option><option value="nba">NBA only</option><option value="nhl">NHL only</option></select></div>
 <div id="best5"></div><div class="bar"><label for="pz-sport" style="font-weight:600">Parlays</label><select id="pz-sport" title="Overall suggested parlays, or per-sport parlays (each its own record)"><option value="">Overall (all sports)</option><option value="nfl">NFL only</option><option value="nba">NBA only</option><option value="nhl">NHL only</option></select></div><div id="pzs"></div><div id="b-none" class="empty hide">No Best 5 or suggested parlays for this date.</div></div>
@@ -103,6 +164,16 @@ body.hasslip .wrap{padding-bottom:84px}
 <span class="note" id="lvst"></span></div><div id="lvrec" class="note"></div><div id="lvv"></div><div id="lvlist"></div>
 <p class="note">Live: scores and box scores from ESPN (refreshes every minute while this tab is open; 0 Odds API credits). Hit % = remaining-time share × pregame rate blended with the current pace, then the pipeline's distributions; the pregame calibration fades out as the game goes on. "Proj" = projected final at the blended pace (game lines: projected margin for the side / total). Informational — re-check the live price before betting.</p></div>
 
+<!--KB139 views--><div id="srch" class="hide kbv"></div><div id="mb" class="hide kbv"></div><div id="wl" class="hide kbv"></div>
+<div id="kbm" class="hide" role="dialog" aria-modal="true" aria-labelledby="kbm-t"><div class="c"><h3 id="kbm-t">＋ Placed</h3><div class="lgs" id="kbm-legs"></div>
+<label for="kbm-bk">Book</label><select id="kbm-bk"></select>
+<div class="two"><div><label for="kbm-od">Odds you took</label><input id="kbm-od" inputmode="text" autocomplete="off" placeholder="-110 or +150"></div><div><label for="kbm-sk">Stake</label><div style="display:flex;gap:6px"><input id="kbm-sk" inputmode="decimal" autocomplete="off"><select id="kbm-u" style="width:70px" aria-label="Stake unit"><option value="u">u</option><option value="$">$</option></select></div></div></div>
+<label for="kbm-at">Placed (your time)</label><input id="kbm-at" type="datetime-local">
+<div id="kbm-rw"><label for="kbm-res">Result</label><select id="kbm-res"><option value="">Auto (grade from results)</option><option value="win">Win</option><option value="loss">Loss</option><option value="push">Push</option><option value="void">Void</option><option value="pending">Pending</option></select></div>
+<label for="kbm-nt">Note</label><input id="kbm-nt" maxlength="300" autocomplete="off" placeholder="optional">
+<div class="err" id="kbm-err"></div><div class="bt"><button type="button" id="kbm-save">Save</button><button type="button" id="kbm-x" class="alt">Cancel</button><button type="button" id="kbm-del" class="danger hide">Delete</button></div>
+<p class="note" style="margin:8px 0 0">Saved only in this browser (My bets). Re-check the price at your book — this records what you actually took.</p></div></div>
+<input type="file" id="kbfile" accept="application/json,.json" class="hide" aria-hidden="true"><!--/KB139 views-->
 <div id="slipbar" class="hide"><b id="slipsum"></b><button id="slipopen" type="button">Open slip</button></div>
 <div id="slip" class="slip hide" role="dialog" aria-label="Parlay slip"></div>
 <p class="note" id="foot"></p>
@@ -681,4 +752,319 @@ $('sub').textContent=`Built ${D.built} · ${D.rows.length} priced bets · ${D.da
 $('foot').textContent='Our prob / edge / EV are at the shown price (your books: FD/BetMGM, or DK/bet365/Fanatics when ≥10¢ or 1 pt better or the only one of your books offering it). — = not available. "data thin" = small or prior-season sample. Stake = suggested units (quarter Kelly on our probability at the shown price, ×0.5 Speculative, ×0.5 data thin, 0.5–2u in 0.5 steps; shown for +EV bets at your books and every logged pick). Re-check lines before betting.'+(D.dropped.length?` Older days left out to keep the page small: ${D.dropped.join(', ')}.`:'');
 (function(){const h=new URLSearchParams(location.hash.slice(1));for(const[k,x]of h)state[k]=x;
  if(state.t&&!state.s){} slipLoad();if(state.tab=='find'||state.tab=='rec'||state.tab=='mo'||state.tab=='parlay'||(state.tab=='np'&&D.np)||(state.tab=='up'&&D.up)||(state.tab=='live'&&D.live))tab(state.tab);else tab('best')})();
+
+/*KB139*/
+/* KoleBets 1.3.9 parity on the web page: search, "＋ Placed" + My bets, watchlist stars, line-move badges.
+   Everything is kept in THIS browser (localStorage keys bf_bets, bf_stars, bf_espn, bf_kbcfg); nothing is uploaded.
+   Grading: the results already on this page first, then ESPN's public scoreboard / box score (same feed as the Live tab). */
+const KB=(function(){
+const LK={bets:'bf_bets',stars:'bf_stars',espn:'bf_espn',cfg:'bf_kbcfg'},VIEWS=['srch','mb','wl'],OLDT=['best','find','rec','mo','live','parlay','up','np'];
+const ld=(k,d)=>{try{const x=JSON.parse(localStorage.getItem(k)||'null');return x==null?d:x}catch(e){return d}};
+const sv=(k,x)=>{try{localStorage.setItem(k,JSON.stringify(x));return true}catch(e){toast('Could not save — this browser blocked or filled its storage.');return false}};
+let BETS=ld(LK.bets,[]),STARS=ld(LK.stars,[]),ESPN=ld(LK.espn,{}),CFG=ld(LK.cfg,{});
+if(!Array.isArray(BETS))BETS=[];if(!Array.isArray(STARS))STARS=[];if(!ESPN||typeof ESPN!='object')ESPN={};if(!CFG||typeof CFG!='object')CFG={};
+const saveBets=()=>sv(LK.bets,BETS),saveStars=()=>sv(LK.stars,STARS),saveCfg=()=>sv(LK.cfg,CFG);
+function toast(m){let t=$('kbtoast');if(!t){t=document.createElement('div');t.id='kbtoast';t.setAttribute('role','status');document.body.appendChild(t)}t.textContent=m;t.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove('on'),2800)}
+const norm=s=>String(s==null?'':s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/['’.]/g,'').replace(/\b(jr|sr|ii|iii|iv)\b/g,' ').replace(/[^a-z0-9+]+/g,' ').trim();
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+const dcm=o=>o==null||isNaN(o)||Math.abs(o)<100?null:(o>0?1+o/100:1+100/-o);
+const amr=d=>d==null||!(d>1)?null:(d>=2?Math.round((d-1)*100):Math.round(-100/(d-1)));
+const oddsIn=x=>{const s=String(x==null?'':x).trim().replace(/^\+/,'');if(!/^-?\d+$/.test(s))return null;const n=+s;return Math.abs(n)>=100?n:null};
+const fx=(x,dp)=>(x>0?'+':x<0?'−':'')+Math.abs(x).toFixed(dp==null?2:dp);
+const cls=x=>x>0.0001?'kbpos':x<-0.0001?'kbneg':'';
+const NR={w:'win',win:'win',won:'win',l:'loss',loss:'loss',lost:'loss',p:'push',push:'push',v:'void',void:'void',dnp:'void'};
+const nres=x=>NR[String(x||'').toLowerCase()]||null;
+const ET_=t=>{const x=new Date(t);return isNaN(x)?'':x.toLocaleString('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})+' ET'};
+const KD={Moneyline:'ml',Spread:'spread','Puck line':'spread',Total:'total','Team total':'team_total'};
+const TYP={ml:'Moneyline',spread:'Spread',total:'Total',team_total:'Team total',prop:'Player prop'};
+const ST={nba:{'Points':'pts','Rebounds':'reb','Assists':'ast','3PM':'fg3m','Blocks':'blk','Steals':'stl','PRA':'pra','Pts+Reb':'pr','Pts+Ast':'pa','Reb+Ast':'ra','Stl+Blk':'stocks','Double-Double':'dd','Triple-Double':'td3','Turnovers':'tov'},
+ nfl:{'Pass yds':'pass_yds','Rush yds':'rush_yds','Rec yds':'rec_yds','Receptions':'rec','Completions':'pass_cmp','Interceptions':'ints','Pass TDs':'pass_tds','Pass att':'pass_att','Rush att':'rush_att','Anytime TD':'anytime_td','2+ TDs':'anytime_td','3+ TDs':'anytime_td','Rush+Rec yds':'rush_rec_yds','Pass+Rush yds':'pass_rush_yds','Tackles':'tackles','Sacks':'sacks','Longest reception':'long_rec','Longest rush':'long_rush'},
+ nhl:{'Points':'points','Shots on goal':'sog','Goals':'goals','Assists':'assists','Saves':'saves','Blocked shots':'blocks','Hits':'hits'}};
+const LONG={receptions:'rec',rebounds:'reb',assists:'ast','shots on goal':'sog',threes:'fg3m','3 pointers made':'fg3m','3pt made':'fg3m','three pointers made':'fg3m',blocks:'blk',steals:'stl','pts+reb+ast':'pra','points+rebounds+assists':'pra','pts+reb':'pr','pts+ast':'pa','reb+ast':'ra','receiving yards':'rec_yds','rushing yards':'rush_yds','passing yards':'pass_yds','rec yds':'rec_yds','rush yds':'rush_yds','pass yds':'pass_yds','passing tds':'pass_tds','pass tds':'pass_tds',completions:'pass_cmp','pass attempts':'pass_att','rush attempts':'rush_att',interceptions:'ints',saves:'saves',goals:'goals','double double':'dd','triple double':'td3','anytime td':'anytime_td'};
+const NOBOX=/first (td|touchdown|goal)/i;
+function statFor(s,label){if(!label)return'';const m=(ST[s]||{})[label];if(m)return m;const n=norm(label).replace(/ alt$/,'');
+ if(n=='points')return s=='nhl'?'points':'pts';const vals=Object.values(ST[s]||{});if(vals.includes(n.replace(/ /g,'_')))return n.replace(/ /g,'_');return LONG[n]||''}
+
+/* ---------- legs + bets (field names follow KoleBets My bets) ---------- */
+function gameBy(s,d,eid,label){return (D.games||[]).find(g=>(eid?String(g.event_id)==String(eid):g.label==label&&(!s||g.sport==s))&&(!d||g.date==d))||null}
+function sideOf(g,t){if(!g||!t)return'';return g.home&&t==g.home.abbr?'home':g.away&&t==g.away.abbr?'away':''}
+function legFromRow(r,o){const g=gameOf(r)||{},kd=KD[r.m]||'prop';let sd=String(r.sd||'').toLowerCase();if(kd=='ml'||kd=='spread')sd=sideOf(g,r.t);sd={yes:'over',no:'under'}[sd]||sd;
+ return Object.assign({sport:r.s,espn:String(r.g||''),d:r.d,game:g.label||'',start:g.start||'',kd,side:sd,line:r.ln==null?null:r.ln,player:r.pl||'',team:r.t||'',stat:kd=='prop'?statFor(r.s,r.m):'',
+  sel:r.sel,market:r.m||'',book:r.bk||'',odds:r.od==null?null:r.od,prob:r.pp==null?null:r.pp,edge:r.ed==null?null:r.ed,tier:r.cf||'',pick_odds:r.od==null?null:r.od,pick_book:r.bk||'',pick_line:r.ln==null?null:r.ln,
+  src:(r.src||[]).includes('model')?'Model pick':'Bet finder model price',mk:rk(r),result:nres(r.res)||'pending'},o||{})}
+const selHead=s=>{const m=/^(.*? (?:Over|Under) -?[\d.]+)/.exec(s||'');return m?m[1]:String(s||'')};
+function legFromText(s,d,gm,sel,od,bk,extra){const g=gameBy(s,d,null,gm),L={sport:s,espn:g?String(g.event_id):'',d,game:gm||'',start:g?g.start:'',kd:'prop',side:'',line:null,player:'',team:'',stat:'',sel,market:'',book:bk||'',odds:od,prob:null,edge:null,tier:'',pick_odds:od,pick_book:bk||'',pick_line:null,src:'Model pick',mk:'',result:'pending'};
+ let m;if((m=/^(.+?) (Over|Under) (-?[\d.]+)(?: (.+?))?(?: \(alt\))?$/.exec(sel||''))){const who=m[1];L.side=m[2].toLowerCase();L.line=+m[3];
+  if(who=='Game'||who=='Total'){L.kd='total'}else if(!m[4]||/team total/i.test(m[4])){L.kd='team_total';L.team=g?(norm(g.home.name)==norm(who)||g.home.abbr==who?g.home.abbr:g.away.abbr):who}else{L.player=who;L.stat=statFor(s,m[4]);L.market=m[4]}}
+ else if((m=/^(.+?) ML$/.exec(sel||''))){L.kd='ml';L.team=m[1]}
+ else if((m=/^(.+?) ([+-][\d.]+)$/.exec(sel||''))){L.kd='spread';L.team=m[1];L.line=+m[2]}
+ else if((m=/^(.+?) (Anytime TD|Anytime Goal|2\+ TDs|3\+ TDs|Double-Double|Triple-Double)(?: — (No))?$/.exec(sel||''))){L.player=m[1];L.side=m[3]?'under':'over';L.market=m[2];
+  L.stat={'Anytime TD':'anytime_td','2+ TDs':'anytime_td','3+ TDs':'anytime_td','Anytime Goal':'goals','Double-Double':'dd','Triple-Double':'td3'}[m[2]];L.line={'2+ TDs':1.5,'3+ TDs':2.5}[m[2]]||0.5}
+ if((L.kd=='ml'||L.kd=='spread')&&g){const t=norm(L.team);L.side=norm(g.home.name)==t||norm(g.home.abbr)==t?'home':norm(g.away.name)==t||norm(g.away.abbr)==t?'away':'';L.team=L.side=='home'?g.home.abbr:L.side=='away'?g.away.abbr:L.team}
+ return Object.assign(L,extra||{})}
+function findRow(s,d,gm,sel,od,eid){const g=gameBy(s,d,eid,gm);if(!g)return null;const h=selHead(sel);const c=D.rows.filter(y=>y.g==g.event_id&&y.d==d&&(y.sel==sel||selHead(y.sel)==h));return c.find(y=>y.od==od)||c[0]||null}
+function legFromB5(x,t){const ref={t,d:x.d,k:x.k,sp:x.sp||'',sel:x.sel},o={odds:x.od,book:x.bk||'',pick_odds:x.od,pick_book:x.bk||'',tier:x.cf||'',sel:x.sel,src:t=='b5'?'Best 5':'Best 5 ('+(SN[x.sp]||'')+')',ref,result:nres(x.res)||'pending'};
+ const r=findRow(x.s,x.d,x.gm,x.sel,x.od);return r?legFromRow(r,o):legFromText(x.s,x.d,x.gm,x.sel,x.od,x.bk,o)}
+function legFromPz(x,l,i,t){const ref={t,d:x.d,k:x.k,sp:x.sp||'',i},o={odds:l.od,book:l.bk||'',pick_odds:l.od,pick_book:l.bk||'',tier:l.cf||'',prob:l.pp==null?null:l.pp,src:'Suggested parlay leg',ref,result:nres(l.res)||'pending'};
+ const r=ridx()[[x.d,l.g,l.sel,l.ln==null?'':l.ln].join('|')];if(r)return legFromRow(r,o);return legFromText(l.s,x.d,l.gm,l.tx||l.sel,l.od,l.bk,Object.assign(o,{espn:String(l.g||''),sel:l.tx||l.sel}))}
+function legFromUp(r){const kd={moneyline:'ml',spread:'spread',total:'total',team_total:'team_total',player_prop:'prop'}[r.wt]||'prop';const L=legFromText(r.s,r.d,r.gm,r.sel,r.o,r.bk,{});
+ return Object.assign(L,{espn:String(r.g||''),start:r.t||L.start,kd,player:r.pl||L.player,stat:kd=='prop'?(r.sk||L.stat):'',line:r.ln==null?L.line:r.ln,pick_line:r.ln==null?null:r.ln,prob:r.p==null?null:r.p,edge:r.e==null?null:r.e,tier:r.cf||'',
+  src:'Upcoming (early line)',ref:{t:'up',key:[r.d,r.g,r.wt,r.sel,r.ln].join('|')},result:nres(r.res)||'pending',market:L.market||(TYP[kd]||'')})}
+function spec(id){   // "r:<row key>", "b5:<i>", "b5sp:<i>", "pz:<i>", "pzsp:<i>", "up:<i>", "slip", "pg"
+ const i=id.indexOf(':'),t=i<0?id:id.slice(0,i),a=i<0?'':id.slice(i+1);
+ if(t=='r'){const r=ridx()[a];return r?{legs:[legFromRow(r)],odds:r.od,book:r.bk||'',stake:r.sk||1}:null}
+ if(t=='b5'||t=='b5sp'){const x=(D[t]||[])[+a];return x?{legs:[legFromB5(x,t)],odds:x.od,book:x.bk||'',stake:x.sk||1}:null}
+ if(t=='pz'||t=='pzsp'){const x=(D[t]||[])[+a];if(!x)return null;return{legs:x.lg.map((l,j)=>legFromPz(x,l,j,t)),odds:x.ob&&x.obo!=null?x.obo:x.od,book:x.ob||'',stake:1}}
+ if(t=='up'){const r=((D.up||{}).rows||[])[+a];return r?{legs:[legFromUp(r)],odds:r.o,book:r.bk||'',stake:r.st||1}:null}
+ if(t=='slip'){const L=slipLegs();if(!L.length)return null;const c=PM.combine(L),ob=PM.oneBook(L.map(PM.books));return{legs:L.map(r=>legFromRow(r)),odds:L.length==1?L[0].od:(ob.length?ob[0].odds:c.odds),book:L.length==1?L[0].bk:(ob.length?ob[0].book:''),stake:1}}
+ if(t=='pg'){const T=PGT;if(!T||!T.ok)return null;return{legs:T.legs.map(l=>legFromRow(l.r,{odds:l.od,book:l.book,pick_odds:l.od,pick_book:l.book,prob:l.pp==null?null:l.pp,src:'Parlay Generator leg'})),odds:T.odds,book:T.book,stake:1}}
+ return null}
+const lkey=l=>l.mk||[l.d,l.espn,l.sel,l.line==null?'':l.line].join('|');
+const sig=legs=>legs.map(lkey).sort().join('&');
+function placedFor(id){let s=null;try{s=spec(id)}catch(e){}if(!s)return null;const k=sig(s.legs);return BETS.find(b=>sig(b.legs)==k)||null}
+function betSport(legs){const s=[...new Set(legs.map(l=>l.sport))];return s.length==1?s[0]:'mixed'}
+function legsResult(b){const rs=b.legs.map(l=>l.result||'pending');if(b.legs.length==1)return rs[0];if(rs.includes('loss'))return'loss';if(rs.includes('pending'))return'pending';return rs.includes('win')?'win':'push'}
+function settle(b){const r=b.result||legsResult(b);let d=null;
+ if(r=='win'){d=dcm(b.odds);if(b.legs.length>1&&!b.result){const lw=b.legs.filter(l=>l.result!='win');if(lw.length){const ds=b.legs.map(l=>dcm(l.odds));if(d&&ds.every(Boolean))b.legs.forEach((l,i)=>{if(l.result!='win')d/=ds[i]});else{const w=b.legs.filter(l=>l.result=='win').map(l=>dcm(l.odds));d=w.every(Boolean)?w.reduce((a,x)=>a*x,1):null}}}}
+ if(r=='push'||r=='void')d=1;const pl=r=='win'?(d?b.stake*(d-1):0):r=='loss'?-b.stake:0;
+ let mdl=null;if(b.legs.length==1){const l=b.legs[0];if(l.prob!=null&&(l.pick_line==null||l.line==null||+l.line==+l.pick_line)){const md=dcm(l.pick_odds||l.odds);mdl={r,pl:r=='win'?(md?md-1:0):r=='loss'?-1:0}}}
+ return{r,d,pl,mdl}}
+function agg(bs){const a={n:bs.length,w:0,l:0,p:0,pend:0,su:0,plu:0,sd:0,pld:0,mn:0,mw:0,ml:0,mp:0,mu:0};
+ bs.forEach(b=>{const s=settle(b);if(s.r=='pending')a.pend++;else{a[s.r=='win'?'w':s.r=='loss'?'l':'p']++;if(b.unit=='$'){a.sd+=b.stake;a.pld+=s.pl}else{a.su+=b.stake;a.plu+=s.pl}}
+  if(s.mdl){a.mn++;if(s.mdl.r!='pending'){a[s.mdl.r=='win'?'mw':s.mdl.r=='loss'?'ml':'mp']++;a.mu+=s.mdl.pl}}});
+ a.roi=a.su?a.plu/a.su:(a.sd?a.pld/a.sd:null);const mg=a.mw+a.ml+a.mp;a.mroi=mg?a.mu/mg:null;return a}
+const ptxt=a=>{const x=[];if(a.su||!a.sd)x.push(`<span class="${cls(a.plu)}">${fx(a.plu)}u</span>`);if(a.sd)x.push(`<span class="${cls(a.pld)}">${a.pld<0?'−':'+'}$${Math.abs(a.pld).toFixed(2)}</span>`);return x.join(' · ')};
+const stk=b=>b.unit=='$'?'$'+(+b.stake).toFixed(2):(+b.stake)+'u';
+const plTxt=(b,pl)=>b.unit=='$'?`${pl<0?'−':'+'}$${Math.abs(pl).toFixed(2)}`:fx(pl)+'u';
+const typeOf=b=>b.legs.length>1?'Parlay':TYP[b.legs[0].kd]||'Other';
+
+/* ---------- grading ---------- */
+function fromPage(l){if(l.mk){const r=ridx()[l.mk];if(r&&nres(r.res))return{res:nres(r.res),fin:r.fs!=null?'final '+r.fs:''}}
+ const f=l.ref;if(!f)return null;let x=null;
+ if(f.t=='b5'||f.t=='b5sp'){x=(D[f.t]||[]).find(y=>y.d==f.d&&y.k==f.k&&(f.t=='b5'||y.sp==f.sp)&&y.sel==f.sel);return x&&nres(x.res)?{res:nres(x.res),fin:''}:null}
+ if(f.t=='pz'||f.t=='pzsp'){x=(D[f.t]||[]).find(y=>y.d==f.d&&y.k==f.k&&(f.t=='pz'||y.sp==f.sp));const y=x&&x.lg[f.i];return y&&nres(y.res)?{res:nres(y.res),fin:''}:null}
+ if(f.t=='up'){x=((D.up||{}).rows||[]).find(y=>[y.d,y.g,y.wt,y.sel,y.ln].join('|')==f.key);return x&&nres(x.res)?{res:nres(x.res),fin:x.fin||''}:null}
+ return null}
+function findPl(pl,name){const n=norm(name);if(!n)return null;if(pl[n])return pl[n];const w=n.split(' '),last=w[w.length-1],fi=w[0][0];
+ const c=Object.keys(pl).filter(k=>{const v=k.split(' ');return v[v.length-1]==last&&v[0][0]==fi});return c.length==1?pl[c[0]]:null}
+async function espnFinal(s,g){const c=ESPN[g];if(c&&c.state=='post')return c;
+ const sm=await lvGet(LVBASE+LVSP[s]+'/summary?event='+encodeURIComponent(g));if(D.live&&D.live.cfg)try{LM.setCfg(D.live.cfg)}catch(e){}
+ const lv=LM.parse(sm,s);if(lv.state!='post')return{state:lv.state};const pl={};Object.values(lv.players||{}).forEach(p=>{pl[norm(p.name)]=Object.assign({_tm:p.team},p.stats)});
+ const x={state:'post',at:Date.now(),home:{abbr:lv.home.abbr,name:lv.home.name,sc:lv.home.score},away:{abbr:lv.away.abbr,name:lv.away.name,sc:lv.away.score},pl,np:Object.keys(pl).length};
+ ESPN[g]=x;const ks=Object.keys(ESPN);if(ks.length>60)ks.sort((a,b)=>(ESPN[a].at||0)-(ESPN[b].at||0)).slice(0,ks.length-60).forEach(k=>delete ESPN[k]);sv(LK.espn,ESPN);return x}
+function gradeBox(l,x){const H=x.home.sc,A=x.away.sc,cmp=(v,ln)=>v>ln?'win':v<ln?'loss':'push',inv=r=>r=='win'?'loss':r=='loss'?'win':r,score=`${x.away.abbr} ${A} @ ${x.home.abbr} ${H}`;
+ const side=()=>{if(l.side=='home'||l.side=='away')return l.side;const t=norm(l.team);if(!t)return'';return[norm(x.home.abbr),norm(x.home.name)].includes(t)?'home':[norm(x.away.abbr),norm(x.away.name)].includes(t)?'away':''};
+ if(l.kd=='ml'||l.kd=='spread'){const sd=side();
+  if(sd!='home'&&sd!='away')return null;const m=sd=='home'?H-A:A-H;if(l.kd=='ml')return{res:m>0?'win':m<0?'loss':'push',fin:score};if(l.line==null)return null;return{res:cmp(m+(+l.line),0),fin:score}}
+ if(l.kd=='total'){if(l.line==null)return null;const r=cmp(H+A,+l.line);return{res:l.side=='under'?inv(r):r,fin:score+' · total '+(H+A)}}
+ if(l.kd=='team_total'){const sd=side();if(!sd||l.line==null)return null;const v=sd=='home'?H:A,r=cmp(v,+l.line);return{res:l.side=='under'?inv(r):r,fin:score}}
+ if(l.kd=='prop'){if(!l.stat||NOBOX.test((l.market||'')+' '+(l.sel||'')))return{res:null,fin:'needs play-by-play — set the result by hand'};const p=findPl(x.pl,l.player);
+  if(!p)return{res:null,fin:x.np?'player not in the ESPN box score (DNP?) — set the result by hand':'no box score yet'};const v=p[l.stat];if(v==null)return null;const r=cmp(v,l.line==null?0.5:+l.line);
+  return{res:l.side=='under'?inv(r):r,fin:`${l.player}: ${v} ${l.stat}`}}
+ return null}
+let GRADING=false,LASTG=0;
+async function grade(manual){if(GRADING)return 0;GRADING=true;let n=0;
+ try{const now=Date.now(),need={};
+  BETS.forEach(b=>b.legs.forEach(l=>{if(l.result&&l.result!='pending')return;const p=fromPage(l);if(p){l.result=p.res;l.fin=p.fin||'graded on the bet finder';l.via='page';n++;return}
+   if(!l.espn||!LVSP[l.sport])return;const st=Date.parse(l.start||'')||Date.parse((l.d||'')+'T23:00:00Z');if(isNaN(st)||now-st<2.5*3600e3||now-st>30*864e5)return;(need[l.sport+'|'+l.espn]=need[l.sport+'|'+l.espn]||[]).push(l)}));
+  await Promise.all(Object.entries(need).map(async([k,ls])=>{const[s,g]=k.split('|');try{const x=await espnFinal(s,g);if(x.state!='post')return;
+   ls.forEach(l=>{const o=gradeBox(l,x);if(!o)return;if(o.res){l.result=o.res;l.via='ESPN';n++}l.fin=o.fin})}catch(e){}}));
+  BETS.forEach(b=>{const r=legsResult(b);if(r!=b.auto){b.auto=r;b.updated_at=new Date().toISOString()}});saveBets()}
+ finally{GRADING=false;LASTG=Date.now()}
+ if(manual)toast(n?`Graded ${n} leg${n>1?'s':''}.`:'No new results yet — games still going or not final.');counts();if(cur()=='mb')renderMb();return n}
+
+/* ---------- line-move badges ---------- */
+let PIX=null;function pickIdx(){if(!PIX){PIX={};((D.live||{}).picks||[]).forEach(p=>{PIX[p.g+'|'+p.sel]=p})}return PIX}
+const better=(a,b)=>dcm(b)-dcm(a);   // >0: the price now pays more than a
+function badges(r,o){o=o||{};const h=[];if(o.mv&&r.mv)h.push(`<span class="kbmv">↕ ${esc(r.mv)}</span>`);
+ const p=pickIdx()[r.g+'|'+r.sel];if(p&&p.od!=null&&r.od!=null&&p.od!=r.od){const d=better(p.od,r.od);h.push(`<span class="kbmv ${d>0?'up':'dn'}" title="Model pick price when it was logged vs the price on this build">Picked ${odd(p.od)} ${esc(p.bk||'')} → now ${odd(r.od)} ${esc(r.bk||'')}</span>`)}
+ const k=rk(r);for(const s of STARS){const x=s.snap&&s.snap[k];if(x&&x[0]!=null&&r.od!=null&&x[0]!=r.od){const d=better(x[0],r.od);h.push(`<span class="kbmv ${d>0?'up':'dn'}" title="First price this browser saw after you starred it">★ seen ${odd(x[0])} → now ${odd(r.od)}</span>`);break}}
+ for(const b of BETS){if(b.legs.length!=1||b.legs[0].mk!=k)continue;const d=better(b.odds,r.od);if(r.od!=null&&b.odds!=r.od)h.push(`<span class="kbmv ${d>0?'dn':'up'}" title="Your placed price vs the price on this build">You took ${odd(b.odds)} → now ${odd(r.od)}${d<0?' (you beat it)':''}</span>`);else h.push('<span class="kbmv">✓ Placed '+odd(b.odds)+'</span>');break}
+ return h.join('')}
+
+/* ---------- stars ---------- */
+const sid=(k,s,n)=>k=='g'?'g|'+n:'p|'+s+'|'+norm(n);
+const starOn=id=>STARS.some(x=>x.id==id);
+function starRows(x){return x.k=='g'?D.rows.filter(r=>String(r.g)==x.g):D.rows.filter(r=>r.s==x.s&&norm(r.pl)==x.nn)}
+function snapStar(x){x.snap=x.snap||{};starRows(x).forEach(r=>{const k=rk(r);if(!x.snap[k])x.snap[k]=[r.od,r.bk||'',D.built]});const ks=Object.keys(x.snap);if(ks.length>300)ks.sort().slice(0,ks.length-300).forEach(k=>delete x.snap[k])}
+function toggleStar(k,s,n,lb){const id=sid(k,s,n),i=STARS.findIndex(x=>x.id==id);
+ if(i>=0){STARS.splice(i,1);toast('Removed from your watchlist.')}else{const x={id,k,s,n:k=='g'?(lb||n):n,nn:norm(n),g:k=='g'?String(n):'',lb:lb||'',at:new Date().toISOString(),snap:{}};snapStar(x);STARS.push(x);toast('★ Watching '+(x.n||'')+' — line moves show on this page.')}
+ saveStars();counts();refreshBtns()}
+const starBtn=(k,s,n,lb,short)=>{const on=starOn(sid(k,s,n));return `<button type="button" class="kbst${on?' on':''}" data-kbs="${esc(k)}" data-kbsp="${esc(s)}" data-kbn="${esc(n)}" data-kblb="${esc(lb||'')}" aria-pressed="${on}" title="${on?'Remove from':'Add to'} watchlist">${on?'★':'☆'}${short?'':' '+esc(k=='g'?'Game':'Player')}</button>`};
+const placeBtn=id=>{const b=placedFor(id);return `<button type="button" class="kbpl${b?' on':''}" data-kbp="${esc(id)}">${b?'✓ Placed — edit':'＋ Placed'}</button>`};
+function rowBtns(r){const g=gameOf(r)||{};return `<div class="kbx">${placeBtn('r:'+rk(r))}${r.pl?starBtn('p',r.s,r.pl):''}${r.g?starBtn('g',r.s,String(r.g),g.label||''):''}</div>`}
+function refreshBtns(){document.querySelectorAll('[data-kbp]').forEach(b=>{const on=!!placedFor(b.dataset.kbp);b.classList.toggle('on',on);b.textContent=(on?'✓ Placed — edit':'＋ Placed')+(b.dataset.kbfix?' this ticket':'')});
+ document.querySelectorAll('[data-kbs]').forEach(b=>{const on=starOn(sid(b.dataset.kbs,b.dataset.kbsp,b.dataset.kbn));b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);const t=b.textContent.replace(/^[★☆]/,'');b.textContent=(on?'★':'☆')+t})}
+
+/* ---------- modal ---------- */
+let MOD=null;
+const BOOKS=['FanDuel','BetMGM','DraftKings','bet365','Fanatics','Caesars','ESPN BET','BetRivers','Other'];
+function pad(n){return String(n).padStart(2,'0')}
+function localInput(iso){const t=iso?new Date(iso):new Date();if(isNaN(t))return'';return `${t.getFullYear()}-${pad(t.getMonth()+1)}-${pad(t.getDate())}T${pad(t.getHours())}:${pad(t.getMinutes())}`}
+function openModal(o){MOD=o;const m=$('kbm'),b=o.bet,legs=b?b.legs:o.spec.legs,bk=b?b.book:o.spec.book;
+ $('kbm-t').textContent=b?'Edit placed bet':(legs.length>1?`＋ Placed — ${legs.length}-leg parlay`:'＋ Placed');
+ $('kbm-legs').innerHTML=legs.map((l,i)=>`<div>${legs.length>1?(i+1)+'. ':''}${esc(SN[l.sport]||'')} · ${esc(l.game||'')} — <b>${esc(l.sel)}</b> ${odd(l.odds)} ${esc(l.book||'')}${l.prob!=null?' · model '+pct(l.prob):''}</div>`).join('');
+ const opts=[...new Set([bk].concat(BOOKS).filter(Boolean))];$('kbm-bk').innerHTML=opts.map(x=>`<option${x==bk?' selected':''}>${esc(x)}</option>`).join('');
+ $('kbm-od').value=b?odd(b.odds):(o.spec.odds==null?'':odd(o.spec.odds));$('kbm-sk').value=b?b.stake:(CFG.lastUnit=='$'?(CFG.lastUsd||''):(o.spec.stake||1));
+ $('kbm-u').value=b?(b.unit||'u'):(CFG.lastUnit||'u');$('kbm-at').value=localInput(b?b.placed_at:null);$('kbm-nt').value=b?(b.note||''):'';
+ $('kbm-res').value=b?(b.result||''):'';$('kbm-rw').classList.toggle('hide',!b);$('kbm-del').classList.toggle('hide',!b);$('kbm-err').textContent='';
+ m.classList.remove('hide');setTimeout(()=>$('kbm-od').focus(),30)}
+function closeModal(){$('kbm').classList.add('hide');MOD=null}
+function saveModal(){const od=oddsIn($('kbm-od').value),sk=parseFloat(String($('kbm-sk').value).replace(/[$,]/g,'')),u=$('kbm-u').value=='$'?'$':'u';
+ if(od==null){$('kbm-err').textContent='Enter the odds you took (American, e.g. -110 or +150).';return}
+ if(!(sk>0)||sk>1e6){$('kbm-err').textContent='Enter the stake (units or $), more than 0.';return}
+ const at=$('kbm-at').value?new Date($('kbm-at').value):new Date();if(isNaN(at)){$('kbm-err').textContent='Placed time is not a valid date.';return}
+ const now=new Date().toISOString(),bk=$('kbm-bk').value,nt=$('kbm-nt').value.slice(0,300);CFG.lastUnit=u;if(u=='$')CFG.lastUsd=sk;saveCfg();
+ if(MOD.bet){const b=MOD.bet;Object.assign(b,{odds:od,stake:sk,unit:u,book:bk,placed_at:at.toISOString(),note:nt,result:$('kbm-res').value||'',updated_at:now});if(b.legs.length==1){b.legs[0].odds=od;b.legs[0].book=bk}toast('Saved.')}
+ else{const legs=JSON.parse(JSON.stringify(MOD.spec.legs));if(legs.length==1){legs[0].odds=od;legs[0].book=bk}
+  const b={id:uid(),v:1,created_at:now,updated_at:now,placed_at:at.toISOString(),kind:legs.length>1?'parlay':'single',sport:betSport(legs),
+   game:legs.length==1?legs[0].game:[...new Set(legs.map(l=>l.game).filter(Boolean))].join(' / '),start:legs.map(l=>l.start).filter(Boolean).sort()[0]||'',
+   sel:legs.length==1?legs[0].sel:`${legs.length}-leg parlay: `+legs.map(l=>l.sel).join(' + '),market:legs.length==1?(legs[0].market||TYP[legs[0].kd]):'Parlay',book:bk,odds:od,stake:sk,unit:u,note:nt,result:'',auto:'pending',legs};
+  b.auto=legsResult(b);BETS.push(b);toast(`Recorded in My bets: ${b.sel.slice(0,70)} (${odd(od)}, ${stk(b)}).`)}
+ saveBets();closeModal();counts();refreshBtns();if(cur()=='mb')renderMb();setTimeout(()=>grade(false),50)}
+function delBet(id){const i=BETS.findIndex(b=>b.id==id);if(i<0)return;if(!confirm('Delete this bet from My bets? This cannot be undone (export first if unsure).'))return;BETS.splice(i,1);saveBets();closeModal();counts();refreshBtns();if(cur()=='mb')renderMb();toast('Deleted.')}
+function place(id){let s=null;try{s=spec(id)}catch(e){console.warn(e)}if(!s){toast('That pick is no longer on this page.');return}const ex=placedFor(id);
+ if(ex){openModal({bet:ex});return}openModal({spec:s})}
+
+/* ---------- views ---------- */
+function cur(){return VIEWS.includes(state.kv)?state.kv:''}
+function counts(){const p=BETS.filter(b=>settle(b).r=='pending').length;$('kbn-mb').textContent=BETS.length?(p||BETS.length):'';$('kbn-mb').title=p?p+' pending':'';$('kbn-wl').textContent=STARS.length||''}
+function show(v){OLDT.forEach(x=>{const e=$(x),b=$('tab-'+x);if(e)e.classList.add('hide');if(b)b.classList.remove('on')});try{liveStop()}catch(e){}
+ VIEWS.forEach(x=>{$(x).classList.toggle('hide',x!=v);const b=$('tab-'+x);if(b)b.classList.toggle('on',x==v)});state.tab=v;state.kv=v;
+ if(v=='srch')renderSearch();if(v=='mb'){renderMb();if(Date.now()-LASTG>60e3)grade(false)}if(v=='wl')renderWl();hash()}
+function hash(){const h=new URLSearchParams();for(const[k,x]of Object.entries(state))if(x)h.set(k,x);history.replaceState(null,'','#'+h.toString())}
+const MKO=['Moneyline','Spread','Total','Team total'];
+function lineItem(r,o){o=o||{};const g=gameOf(r)||{};const md=(r.src||[]).includes('model');
+ return `<div class="kbl"><div class="meta">${esc(SN[r.s]||'')} · ${esc(g.label||'')}${g.time?' · '+esc(g.time):''}${md?' · <b>model pick</b>':''}${r.b5?' · Best 5':''}</div>
+ <div><span class="sel">${esc(r.sel)}</span> <span class="price">${odd(r.od)}</span> <span class="book">${v(r.bk)}</span>${r.cf?` <span class="pill ${esc(r.cf)}">${esc(r.cf)}</span>`:''}${r.res?` <span class="kbr ${esc(nres(r.res)||'')}">${esc(r.res)}</span>`:''}</div>
+ <div class="why">${esc(r.m||'')}${r.ln!=null&&!MKO.includes(r.m)?' · line '+esc(r.ln):''} · our prob ${pct(r.pp)} · edge ${pct(r.ed,1)} · EV ${pct(r.ev,1)}${r.sk?' · stake '+r.sk+'u':''}</div>
+ <div>${badges(r,{mv:1})}</div>${rowBtns(r)}</div>`}
+let SQ='',SSEL=null,HAY=null;
+function hay(){if(!HAY){HAY=D.rows.map(r=>{const g=gameOf(r)||{};return norm([SN[r.s],g.label,g.home&&g.home.name,g.away&&g.away.name,g.home&&g.home.abbr,g.away&&g.away.abbr,r.sel,r.m,r.pl,r.t,r.bk,(r.src||[]).includes('model')?'model pick':''].join(' '))})}return HAY}
+const gHay=g=>norm([SN[g.sport],g.sport,g.label,g.home.name,g.away.name,g.home.nick,g.away.nick,g.home.abbr,g.away.abbr,g.time].join(' '));
+function renderSearch(){const el=$('srch'),q=norm(SQ),w=q?q.split(' '):[];let h='';
+ if(SSEL){const x=SSEL;let rs=x.k=='g'?D.rows.filter(r=>String(r.g)==x.id):D.rows.filter(r=>r.s==x.s&&norm(r.pl)==norm(x.id));const g=x.k=='g'?gameBy('', '',x.id):null;
+  rs=rs.slice().sort((a,b)=>((b.src||[]).includes('model')-(a.src||[]).includes('model'))||((b.ed||-9)-(a.ed||-9)));
+  h+=`<div class="kbtop"><button type="button" class="alt" data-kbo="back">← Results</button><b style="font-size:18px">${esc(x.k=='g'?(g?SN[g.sport]+' · '+g.label+' · '+g.time:x.id):x.id)}</b>${x.k=='g'?starBtn('g',g?g.sport:'',x.id,g?g.label:''):starBtn('p',x.s,x.id)}<button type="button" data-kbo="find:${esc(x.k)}:${esc(x.s||'')}:${esc(x.id)}">Open in Find bets</button></div>`;
+  const by={};rs.forEach(r=>(by[r.m]=by[r.m]||[]).push(r));const ks=Object.keys(by).sort((a,b)=>(MKO.indexOf(a)+1||99)-(MKO.indexOf(b)+1||99)||a.localeCompare(b));
+  if(!rs.length)h+='<div class="empty">No priced lines for this on today\'s page.</div>';
+  ks.forEach(k=>{h+=`<h2>${esc(k)} · ${by[k].length}</h2>`+by[k].slice(0,40).map(r=>lineItem(r)).join('')});el.innerHTML=h;return}
+ if(!w.length){el.innerHTML=`<p class="note">Search everything on this page: games, teams, players, props, books (all words must match — e.g. <i>lebron pts</i>, <i>eagles spread</i>, <i>nhl sog</i>). Ctrl+K or / jumps here. ＋ Placed records a bet in My bets; ☆ adds a player or game to your watchlist.</p>`;return}
+ const ok=s=>w.every(t=>s.includes(t));
+ const gs=(D.games||[]).filter(g=>ok(gHay(g))).slice(0,10);
+ const H=hay(),ri=[];H.forEach((s,i)=>{if(ok(s))ri.push(i)});const rs=ri.map(i=>D.rows[i]);
+ const pm={};D.rows.forEach((r,i)=>{if(!r.pl)return;const k=r.s+'|'+r.pl;if(pm[k])return;if(ok(norm([SN[r.s],r.pl,r.t,(gameOf(r)||{}).label].join(' '))))pm[k]={s:r.s,pl:r.pl,t:r.t,g:gameOf(r)}});const ps=Object.values(pm).slice(0,12);
+ const U=(D.up||{}).rows||[],ui=[];U.forEach((r,i)=>{if(r.d>=D.today&&ok(norm([SN[r.s],r.gm,r.sel,r.pl,r.bk].join(' '))))ui.push(i)});
+ h+=`<p class="note">${rs.length} line${rs.length==1?'':'s'} · ${gs.length} game${gs.length==1?'':'s'} · ${ps.length} player${ps.length==1?'':'s'}${ui.length?' · '+ui.length+' upcoming':''} for “${esc(SQ)}”</p>`;
+ if(gs.length)h+='<h2>Games</h2>'+gs.map(g=>`<div class="kbg"><div><b>${esc(SN[g.sport])} · ${esc(g.label)}</b><div class="why">${esc(g.away.name)} @ ${esc(g.home.name)} · ${esc(g.time||'')} · ${D.rows.filter(r=>String(r.g)==String(g.event_id)).length} lines</div></div><div class="kbx" style="margin:0"><button type="button" data-kbo="g:${esc(g.event_id)}">Open</button>${starBtn('g',g.sport,String(g.event_id),g.label,1)}</div></div>`).join('');
+ if(ps.length)h+='<h2>Players</h2>'+ps.map(p=>`<div class="kbg"><div><b>${esc(p.pl)}</b><div class="why">${esc(SN[p.s])}${p.t?' · '+esc(p.t):''}${p.g?' · '+esc(p.g.label):''} · ${D.rows.filter(r=>r.s==p.s&&r.pl==p.pl).length} lines</div></div><div class="kbx" style="margin:0"><button type="button" data-kbo="p:${esc(p.s)}:${esc(p.pl)}">Open</button>${starBtn('p',p.s,p.pl,'',1)}</div></div>`).join('');
+ if(rs.length){const top=rs.slice().sort((a,b)=>((b.src||[]).includes('model')-(a.src||[]).includes('model'))||((b.ed||-9)-(a.ed||-9))).slice(0,30);h+=`<h2>Lines${rs.length>30?' · top 30 of '+rs.length:''}</h2>`+top.map(r=>lineItem(r)).join('')}
+ if(ui.length)h+='<h2>Upcoming (early lines)</h2>'+ui.slice(0,15).map(i=>upItem(U[i],i)).join('');
+ if(!rs.length&&!gs.length&&!ps.length&&!ui.length)h+='<div class="empty">Nothing on this page matches. Lines for later days show up once they are posted.</div>';
+ el.innerHTML=h}
+function upItem(r,i){const mv=r.lo!=null&&r.lo!=r.o?`<span class="kbmv ${better(r.o,r.lo)>0?'up':'dn'}">Early ${odd(r.o)} ${esc(r.bk||'')} → latest ${odd(r.lo)} ${esc(r.lb||'')}</span>`:'';
+ return `<div class="kbl"><div class="meta">${esc(SN[r.s]||'')} · ${esc(r.gm||'')} · ${esc(ET_(r.t))} · upcoming</div><div><span class="sel">${esc(r.sel)}</span> <span class="price">${odd(r.o)}</span> <span class="book">${v(r.bk)}</span>${r.cf?` <span class="pill ${esc(r.cf)}">${esc(r.cf)}</span>`:''}</div>
+ <div class="why">model ${pct(r.p)} · edge ${pct(r.e,1)}</div><div>${mv}</div><div class="kbx">${placeBtn('up:'+i)}${r.pl?starBtn('p',r.s,r.pl):''}</div></div>`}
+
+function renderWl(){const el=$('wl');let h=`<div class="kbtop"><b style="font-size:18px">★ Watchlist</b><span class="note">${STARS.length} watched · stored in this browser. Line moves = first price this browser saw after you starred it → the price on this build (${esc(D.built)}), plus DK open → now and model pick-time prices.</span></div>`;
+ if(!STARS.length){el.innerHTML=h+'<div class="empty">Nothing watched yet. Tap ☆ Player or ☆ Game on any bet (Find bets, search, Best 5) to watch it.</div>';return}
+ let ch=false;STARS.forEach(x=>{const n=Object.keys(x.snap||{}).length;snapStar(x);if(Object.keys(x.snap).length!=n)ch=true});if(ch)saveStars();
+ STARS.slice().sort((a,b)=>(a.s||'').localeCompare(b.s||'')||(a.n||'').localeCompare(b.n||'')).forEach(x=>{const rs=starRows(x).sort((a,b)=>((b.src||[]).includes('model')-(a.src||[]).includes('model'))||((b.ed||-9)-(a.ed||-9)));
+  const mv=rs.filter(r=>{const s=x.snap[rk(r)];return s&&s[0]!=r.od}),U=((D.up||{}).rows||[]).map((r,i)=>[r,i]).filter(([r])=>r.d>=D.today&&(x.k=='g'?String(r.g)==x.g:norm(r.pl)==x.nn));
+  const nb=BETS.filter(b=>b.legs.some(l=>x.k=='g'?l.espn==x.g:norm(l.player)==x.nn)).length;
+  h+=`<div class="kbbet"><div class="hd"><div><b>${x.k=='g'?'🏟️':'👤'} ${esc(x.n||'')}</b><div class="meta">${esc(SN[x.s]||'')}${x.k=='g'?' · game':''} · ${rs.length} line${rs.length==1?'':'s'} today${mv.length?' · '+mv.length+' moved':''}${U.length?' · '+U.length+' upcoming':''}${nb?' · '+nb+' in My bets':''} · since ${esc(ET_(x.at))}</div></div>
+  <div class="kbx" style="margin:0">${x.k=='g'?starBtn('g',x.s,x.g,x.lb,1):starBtn('p',x.s,x.n,'',1)}<button type="button" data-kbo="${x.k=='g'?'g:'+esc(x.g):'p:'+esc(x.s)+':'+esc(x.n)}">All lines</button></div></div>`;
+  const show=mv.concat(rs.filter(r=>!mv.includes(r))).slice(0,4);h+=show.map(r=>lineItem(r)).join('')+U.slice(0,3).map(([r,i])=>upItem(r,i)).join('');if(!rs.length&&!U.length)h+='<div class="why">No lines on this page for it right now.</div>';h+='</div>'});
+ h+='<p class="note">This is a web page, so it can\'t alert you in the background — open it to see moves. The KoleBets PC app can notify you.</p>';el.innerHTML=h}
+
+let MBF={st:'',sp:'',bk:'',ty:''};
+function renderMb(){const el=$('mb');BETS.forEach(b=>{b.auto=legsResult(b)});
+ const all=BETS.slice().sort((a,b)=>(b.placed_at||'').localeCompare(a.placed_at||''));
+ const f=all.filter(b=>{const s=settle(b);return(!MBF.st||(MBF.st=='pending'?s.r=='pending':s.r!='pending'))&&(!MBF.sp||b.sport==MBF.sp)&&(!MBF.bk||b.book==MBF.bk)&&(!MBF.ty||typeOf(b)==MBF.ty)});
+ const o=(v,l,c)=>`<option value="${esc(v)}"${v==c?' selected':''}>${esc(l)}</option>`,SPN=x=>x=='mixed'?'Mixed parlays':(SN[x]||x);
+ const sps=[...new Set(all.map(b=>b.sport))],bks=[...new Set(all.map(b=>b.book).filter(Boolean))].sort(),tys=[...new Set(all.map(typeOf))].sort();
+ let h=`<div class="kbtop"><b style="font-size:18px">My bets</b><select id="mb-st" aria-label="Status">${o('','All bets',MBF.st)}${o('pending','Pending',MBF.st)}${o('settled','Settled',MBF.st)}</select>
+ <select id="mb-sp" aria-label="Sport">${o('','All sports',MBF.sp)}${['nfl','nba','nhl'].concat(sps.filter(x=>!['nfl','nba','nhl','mixed'].includes(x))).concat(['mixed']).filter(x=>sps.includes(x)).map(x=>o(x,SPN(x),MBF.sp)).join('')}</select>
+ <select id="mb-bk" aria-label="Book">${o('','All books',MBF.bk)}${bks.map(x=>o(x,x,MBF.bk)).join('')}</select><select id="mb-ty" aria-label="Bet type">${o('','All types',MBF.ty)}${tys.map(x=>o(x,x,MBF.ty)).join('')}</select>
+ <button type="button" data-kbo="grade">Check results</button><button type="button" class="alt" data-kbo="export">Export JSON</button><button type="button" class="alt" data-kbo="import">Import JSON</button></div>`;
+ if(!all.length){el.innerHTML=h+'<div class="empty">No bets yet. Tap <b>＋ Placed</b> on any bet (Best 5, parlays, Find bets, search, Parlay Generator, parlay slip, Upcoming) after you place it at your book. Bets stay in this browser — use Export / Import to move them to another phone or browser.</div>';bindMb();return}
+ const a=agg(f);const mrec=(D.mo||{}).all;
+ h+=`<div class="kbk"><div><span>Record (W-L-P)</span><b>${a.w}-${a.l}-${a.p}</b></div><div><span>Pending</span><b>${a.pend}</b></div><div><span>Your P/L</span><b>${ptxt(a)}</b></div><div><span>Your ROI</span><b class="${cls(a.roi||0)}">${a.roi==null?DASH:pct(a.roi,1)}</b></div>
+ <div><span>Model, same bets (1u at its price)</span><b class="${cls(a.mu)}">${a.mw+a.ml+a.mp?fx(a.mu)+'u':DASH}</b></div><div><span>Model ROI, same bets</span><b class="${cls(a.mroi||0)}">${a.mroi==null?DASH:pct(a.mroi,1)}</b></div></div>`;
+ if(mrec)h+=`<p class="note">Model's full record (every logged pick, 1u): ${mrec.w}-${mrec.l}-${mrec.p} · ${fx(mrec.units||0)}u · ROI ${pct(mrec.roi,1)}${(D.mo.first&&D.mo.last)?' · '+esc(D.mo.first)+' → '+esc(D.mo.last):''}.</p>`;
+ const tbl=(title,key,order)=>{const g={};f.forEach(b=>{const k=key(b);(g[k]=g[k]||[]).push(b)});const ks=Object.keys(g).sort(order||((x,y)=>x.localeCompare(y)));if(!ks.length)return'';
+  const mr=title=='By sport'?k=>{const s=((D.mo||{}).sport||[]).find(x=>x.k==SN[k]);return s?`${s.w}-${s.l}-${s.p} · ${fx(s.units||0)}u`:DASH}:null;
+  return `<h2>${title}</h2><div class="kbt"><table><tr><th>${title.slice(3)}</th><th>Bets</th><th>W-L-P</th><th>Pending</th><th>P/L</th><th>ROI</th><th>Model (same bets)</th>${mr?'<th>Model overall</th>':''}</tr>`+
+  ks.map(k=>{const x=agg(g[k]);return `<tr><td>${esc(title=='By sport'?SPN(k):k||'—')}</td><td class="n">${x.n}</td><td>${x.w}-${x.l}-${x.p}</td><td class="n">${x.pend}</td><td class="n">${ptxt(x)}</td><td class="n">${x.roi==null?DASH:pct(x.roi,1)}</td><td class="n">${x.mw+x.ml+x.mp?fx(x.mu)+'u'+(x.mroi==null?'':' ('+pct(x.mroi,1)+')'):DASH}</td>${mr?`<td>${mr(k)}</td>`:''}</tr>`}).join('')+'</table></div>'};
+ const so=['nfl','nba','nhl'];h+=tbl('By sport',b=>b.sport,(x,y)=>(x=='mixed')-(y=='mixed')||((so.indexOf(x)+1||9)-(so.indexOf(y)+1||9))||x.localeCompare(y))+tbl('By type',typeOf)+tbl('By book',b=>b.book||'—');
+ h+=`<h2>Bets · ${f.length}${f.length!=all.length?' of '+all.length:''}</h2>`;
+ h+=f.map(b=>{const s=settle(b),r=s.r,man=!!b.result;
+  const legs=b.legs.length>1?b.legs.map((l,i)=>`<div class="lg">${i+1}. ${esc(SN[l.sport]||'')} · ${esc(l.game||'')} — <b>${esc(l.sel)}</b> ${odd(l.odds)} <span class="kbr ${esc(l.result||'')}">${esc(l.result||'pending')}</span>${l.fin?' <span class="why">'+esc(l.fin)+'</span>':''}</div>`).join(''):(b.legs[0].fin?`<div class="why">${esc(b.legs[0].fin)}${b.legs[0].via?' · via '+esc(b.legs[0].via):''}</div>`:'');
+  const row=b.legs.length==1&&b.legs[0].mk?ridx()[b.legs[0].mk]:null;const l0=b.legs[0];
+  const mdl=s.mdl?`model ${odd(l0.pick_odds)}${s.mdl.r!='pending'?' → '+fx(s.mdl.pl)+'u':''}`:'';
+  return `<div class="kbbet ${esc(r)}"><div class="hd"><b>${esc(b.sel)}</b><span class="kbr ${esc(r)}">${esc(r)}${man?' (manual)':''}</span></div>
+  <div class="meta">${esc(b.sport=='mixed'?'Mixed':SN[b.sport]||b.sport)} · ${esc(typeOf(b))}${b.legs.length==1&&b.game?' · '+esc(b.game):''}${b.start?' · '+esc(ET_(b.start)):''} · placed ${esc(ET_(b.placed_at))}</div>
+  <div><span class="price">${odd(b.odds)}</span> at <b>${esc(b.book||'—')}</b> · stake ${esc(stk(b))}${r!='pending'?` · P/L <b class="${cls(s.pl)}">${plTxt(b,s.pl)}</b>`:` · to win ${b.unit=='$'?'$'+(b.stake*((dcm(b.odds)||1)-1)).toFixed(2):(b.stake*((dcm(b.odds)||1)-1)).toFixed(2)+'u'}`}${mdl?' · '+mdl:''}</div>
+  ${legs}${row?'<div>'+badges(row,{})+'</div>':''}${b.note?`<div class="why">📝 ${esc(b.note)}</div>`:''}
+  <div class="kbx"><button type="button" data-kbe="${esc(b.id)}">Edit</button><select data-kbr="${esc(b.id)}" aria-label="Result">${o('','Auto result',b.result||'')}${['win','loss','push','void','pending'].map(x=>o(x,'Set '+x,b.result||'')).join('')}</select><button type="button" data-kbd="${esc(b.id)}" style="border-color:#d64545;color:#b02a2a">Delete</button></div></div>`}).join('');
+ h+=`<p class="note">Auto-grading uses this page's own results first (Best 5, parlays, upcoming and today's picks), then the final ESPN score / box score for the game. First TD / first goal scorer and players missing from the box score need a manual result. Parlays: a loss loses; push / void legs drop out at their leg price. "Model (same bets)" = 1u at the model's own price on your singles. Stored only in this browser${CFG.lastExport?' · last export '+esc(ET_(CFG.lastExport)):''}.</p>`;
+ el.innerHTML=h;bindMb()}
+function bindMb(){[['mb-st','st'],['mb-sp','sp'],['mb-bk','bk'],['mb-ty','ty']].forEach(([i,k])=>{const e=$(i);if(e)e.onchange=()=>{MBF[k]=e.value;renderMb()}});
+ document.querySelectorAll('#mb [data-kbr]').forEach(s=>s.onchange=()=>{const b=BETS.find(x=>x.id==s.dataset.kbr);if(!b)return;b.result=s.value=='pending'?'pending':s.value;if(s.value=='')b.result='';b.updated_at=new Date().toISOString();saveBets();counts();renderMb();toast(s.value?'Result set to '+s.value+'.':'Back to auto grading.')})}
+function doExport(){const data={app:'KoleBets bet finder',kind:'kolebets-mybets',v:1,exported_at:new Date().toISOString(),bets:BETS,stars:STARS};
+ const bl=new Blob([JSON.stringify(data,null,1)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(bl);a.download='kolebets-mybets-'+localInput().slice(0,10)+'.json';document.body.appendChild(a);a.click();
+ setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500);CFG.lastExport=data.exported_at;saveCfg();toast(`Exported ${BETS.length} bet${BETS.length==1?'':'s'} and ${STARS.length} watched.`)}
+function validBet(b){return b&&typeof b=='object'&&Array.isArray(b.legs)&&b.legs.length&&b.legs.length<=15&&b.legs.every(l=>l&&typeof l.sel=='string')&&oddsIn(b.odds)!=null&&+b.stake>0}
+function doImport(file){const fr=new FileReader();fr.onload=()=>{let j;try{j=JSON.parse(fr.result)}catch(e){toast('That file is not valid JSON.');return}
+ const bs=Array.isArray(j)?j:(j&&Array.isArray(j.bets)?j.bets:null);if(!bs){toast('No bets found in that file.');return}let add=0,upd=0,bad=0;
+ bs.forEach(b=>{if(!validBet(b)){bad++;return}b.odds=oddsIn(b.odds);b.stake=+b.stake;b.unit=b.unit=='$'?'$':'u';b.id=String(b.id||uid());b.result=nres(b.result)||(b.result=='pending'?'pending':'');b.legs.forEach(l=>{l.result=nres(l.result)||'pending'});
+  b.sel=String(b.sel||(b.legs.length==1?b.legs[0].sel:b.legs.length+'-leg parlay'));b.sport=b.sport||betSport(b.legs);b.placed_at=b.placed_at||b.created_at||new Date().toISOString();
+  const i=BETS.findIndex(x=>x.id==b.id);if(i>=0){if((b.updated_at||'')>=(BETS[i].updated_at||'')){BETS[i]=b;upd++}}else{BETS.push(b);add++}});
+ let st=0;if(j&&Array.isArray(j.stars))j.stars.forEach(x=>{if(x&&x.id&&x.k&&!STARS.some(y=>y.id==x.id)){x.snap=x.snap&&typeof x.snap=='object'?x.snap:{};STARS.push(x);st++}});
+ saveBets();saveStars();counts();refreshBtns();renderMb();toast(`Imported: ${add} new, ${upd} updated${bad?', '+bad+' skipped (not bets)':''}${st?', '+st+' watched':''}.`);grade(false)};fr.readAsText(file)}
+
+/* ---------- hook into the page ---------- */
+function inject(){
+ const bl=b5S()?(D.b5sp||[]).map((x,i)=>[x,i]).filter(([x])=>x.d==bestD()&&x.sp==b5S()):(D.b5||[]).map((x,i)=>[x,i]).filter(([x])=>x.d==bestD()),t5=b5S()?'b5sp':'b5';
+ document.querySelectorAll('#best5 .b5r').forEach((e,j)=>{if(e.querySelector('.kbx')||!bl[j])return;const[x,i]=bl[j];const r=findRow(x.s,x.d,x.gm,x.sel,x.od);const pl=r?r.pl:(legFromText(x.s,x.d,x.gm,x.sel,x.od,x.bk).player);const g=gameBy(x.s,x.d,null,x.gm);
+  e.insertAdjacentHTML('beforeend',`${r?'<div>'+badges(r,{mv:1})+'</div>':''}<div class="kbx">${placeBtn(t5+':'+i)}${pl?starBtn('p',x.s,pl):''}${g?starBtn('g',x.s,String(g.event_id),g.label):''}</div>`)});
+ const sp=pzS(),pl=sp?(D.pzsp||[]).map((x,i)=>[x,i]).filter(([x])=>x.d==bestD()&&x.sp==sp):(D.pz||[]).map((x,i)=>[x,i]).filter(([x])=>x.d==bestD()),tp=sp?'pzsp':'pz';
+ document.querySelectorAll('#pzs .pzr').forEach((e,j)=>{if(e.querySelector('.kbx')||!pl[j])return;e.insertAdjacentHTML('beforeend',`<div class="kbx">${placeBtn(tp+':'+pl[j][1])}</div>`)})}
+const _card=card;card=function(r){const h=_card(r),i=h.lastIndexOf('</div>');if(i<0)return h;const b=badges(r,{});return h.slice(0,i)+(b?'<div>'+b+'</div>':'')+rowBtns(r)+h.slice(i)};
+const _best5=best5;best5=function(){const x=_best5.apply(this,arguments);try{inject()}catch(e){console.warn(e)}return x};
+const _pzBlock=pzBlock;pzBlock=function(){const x=_pzBlock.apply(this,arguments);try{inject()}catch(e){console.warn(e)}return x};
+const _slipRender=slipRender;slipRender=function(){const x=_slipRender.apply(this,arguments);const el=$('slip');if(el&&!el.classList.contains('hide')&&slipLegs().length)el.insertAdjacentHTML('beforeend',`<div class="kbx">${placeBtn('slip')}</div>`);return x};
+const _renderPg=renderPg;renderPg=function(){const x=_renderPg.apply(this,arguments);const t=document.querySelector('#parlay .pgt');if(t&&PGT&&PGT.ok)t.insertAdjacentHTML('beforeend',`<div class="kbx">${placeBtn('pg').replace('data-kbp','data-kbfix="1" data-kbp').replace(/(Placed(?: — edit)?)</,'$1 this ticket<')}</div>`);return x};
+const _renderUp=renderUp;renderUp=function(){const x=_renderUp.apply(this,arguments);try{const U=D.up.rows,seen={},idx={};U.forEach((r,i)=>{const k=[r.d,r.g,r.wt,r.sel,r.ln].join('|');if(seen[k])return;seen[k]=1;const t=((SN[r.s]||'')+' '+(r.gm||DASH))+'|'+r.sel+'|'+odd(r.o);(idx[t]=idx[t]||[]).push(i)});
+  const used={};document.querySelectorAll('#up tr[title]').forEach(tr=>{const td=tr.children;if(td.length<5)return;const t=td[0].textContent+'|'+td[2].textContent+'|'+(td[4].textContent.split(' ')[0]);const c=idx[t];if(!c)return;const n=used[t]||0;used[t]=n+1;const i=c[Math.min(n,c.length-1)];
+   td[2].insertAdjacentHTML('beforeend',`<div class="kbx" style="margin-top:4px">${placeBtn('up:'+i)}</div>`)})}catch(e){console.warn(e)}return x};
+const _tab=tab;tab=function(t){if(VIEWS.includes(t))return show(t);VIEWS.forEach(x=>{$(x).classList.add('hide');const b=$('tab-'+x);if(b)b.classList.remove('on')});delete state.kv;return _tab(t)};
+document.addEventListener('click',e=>{const b=e.target.closest('[data-kbp],[data-kbs],[data-kbe],[data-kbd],[data-kbo]');if(!b)return;
+ if(b.dataset.kbp){e.preventDefault();place(b.dataset.kbp);return}
+ if(b.dataset.kbs){e.preventDefault();toggleStar(b.dataset.kbs,b.dataset.kbsp,b.dataset.kbn,b.dataset.kblb);if(cur()=='wl')renderWl();return}
+ if(b.dataset.kbe){const x=BETS.find(y=>y.id==b.dataset.kbe);if(x)openModal({bet:x});return}
+ if(b.dataset.kbd){delBet(b.dataset.kbd);return}
+ const o=b.dataset.kbo;if(!o)return;
+ if(o=='back'){SSEL=null;renderSearch();return}if(o=='grade'){grade(true);return}if(o=='export'){doExport();return}if(o=='import'){$('kbfile').value='';$('kbfile').click();return}
+ if(o.startsWith('g:')){SSEL={k:'g',id:o.slice(2)};show('srch');window.scrollTo(0,0);return}
+ if(o.startsWith('p:')){const a=o.slice(2),i=a.indexOf(':');SSEL={k:'p',s:a.slice(0,i),id:a.slice(i+1)};show('srch');window.scrollTo(0,0);return}
+ if(o.startsWith('find:')){const[,k,s,id]=o.split(':');const x=k=='g'?gameBy('','',id):null;state={s:k=='g'?(x?x.sport:state.s):s,d:D.today,tab:'find'};if(k=='g')state.g=id;else state.p=id;showAll=false;tab('find');return}});
+function bindUi(){
+ $('tab-mb').onclick=()=>tab('mb');$('tab-wl').onclick=()=>tab('wl');
+ const q=$('kbq');q.value=SQ;q.addEventListener('input',e=>{if(e.target!==q||q.value===SQ)return;SQ=q.value;state.kq=SQ;SSEL=null;clearTimeout(bindUi.h);bindUi.h=setTimeout(()=>{if(cur()!='srch'){if(SQ)show('srch')}else{renderSearch();hash()}},140)});
+ q.addEventListener('keydown',e=>{if(e.key=='Escape'){q.value='';SQ='';state.kq='';renderSearch();q.blur()}if(e.key=='Enter'){if(cur()!='srch')show('srch');q.blur()}});
+ q.addEventListener('focus',()=>{if(SQ&&cur()!='srch')show('srch')});
+ document.addEventListener('keydown',e=>{const tg=(e.target&&e.target.tagName)||'';if((e.ctrlKey||e.metaKey)&&(e.key=='k'||e.key=='K')){e.preventDefault();q.focus();q.select();return}
+  if(e.key=='/'&&!/INPUT|TEXTAREA|SELECT/.test(tg)){e.preventDefault();q.focus();return}if(e.key=='Escape'&&MOD)closeModal()});
+ $('kbm-save').onclick=saveModal;$('kbm-x').onclick=closeModal;$('kbm-del').onclick=()=>MOD&&MOD.bet&&delBet(MOD.bet.id);$('kbm').addEventListener('click',e=>{if(e.target.id=='kbm')closeModal()});
+ $('kbm').addEventListener('keydown',e=>{if(e.key=='Enter'&&e.target.tagName=='INPUT')saveModal()});
+ $('kbfile').onchange=e=>{const f=e.target.files&&e.target.files[0];if(f)doImport(f)}}
+function init(){bindUi();counts();if(state.kq){SQ=state.kq;$('kbq').value=SQ}
+ let ch=false;STARS.forEach(x=>{const n=Object.keys(x.snap||{}).length;snapStar(x);if(Object.keys(x.snap).length!=n)ch=true});if(ch)saveStars();
+ try{inject()}catch(e){}if(VIEWS.includes(state.kv))show(state.kv);else if(!$('find').classList.contains('hide'))render();
+ if(BETS.some(b=>b.legs.some(l=>!l.result||l.result=='pending')))setTimeout(()=>grade(false),1500)}
+init();
+return{get bets(){return BETS},get stars(){return STARS},grade,place,settle,agg,legsResult,gradeBox,legFromText,statFor,spec,show};
+})();
+/*/KB139*/
 </script></body></html>
