@@ -1218,7 +1218,7 @@ var PKV=(function(){
   let h='<div class="trk-box"><h2>'+title+' <span class="note">· '+esc(d||'')+'</span></h2>';
   h+='<div class="trk-nav">';
   h+='<button type="button" data-trkd-dir="-1"'+(i<=0?' disabled':'')+' aria-label="Previous day">‹</button>';
-  h+='<select id="trk-date" aria-label="Pocket list date">'+dates.map(x=>'<option value="'+x+'"'+(x==d?' selected':'')+'>'+fmt(x)+(x===(X.date||D.today)?' (today)':'')+'</option>').join('')+'</select>';
+  h+='<select id="trk-date" aria-label="Pocket list date">'+dates.map(x=>'<option value="'+x+'"'+(x==d?' selected':'')+'>'+new Date(x+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})+(x===(X.date||D.today)?' (today)':'')+'</option>').join('')+'</select>';
   h+='<button type="button" data-trkd-dir="1"'+(i<0||i>=dates.length-1?' disabled':'')+' aria-label="Next day">›</button>';
   h+='</div>';
   h+='<p class="note">Picks that sat in a proven winning pocket this day (category shrunk ROI &gt; 0 with n≥30, edge band ROI ≥ 0, band n≥20 / NFL 10), sorted by the pocket\'s units, then ROI, then sample n (same as the PC). Display only. Each play shows its result, the category record, the category × edge band record, and the home/away venue cell — pocket records are as of that morning (no hindsight). All excludes NFL while the NFL gate is on; open the NFL view to see those tracked-only picks.</p>';
